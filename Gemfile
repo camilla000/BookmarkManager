@@ -9,3 +9,4 @@ gem 'rspec'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-reloader'
+gem "sinatra-flash", "~> 0.3.0"
