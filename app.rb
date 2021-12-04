@@ -1,13 +1,11 @@
 require 'sinatra/base'
-require 'sinatra/reloader'
+require_relative './lib/bookmark'
 
 class BookmarkManager < Sinatra::Base
-  configure :development do
-    register Sinatra::Reloader
-  end
+  enable :sessions, :method_override
 
   get '/' do
-    'Bookmark Manager!'
+    'Bookmark Manager'
   end
 
   get '/bookmarks' do
@@ -20,10 +18,14 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    Bookmark.create(url: params[:url])
+    Bookmark.create(url: params[:url], title: params[:title])
     redirect '/bookmarks'
   end
 
-  # start the server if ruby file executed directly
+  delete '/bookmarks/:id' do
+    Bookmark.delete(id: params[:id])
+    redirect '/bookmarks'
+  end
+
   run! if app_file == $0
 end
