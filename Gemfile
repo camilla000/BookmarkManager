@@ -10,3 +10,5 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-reloader'
 gem "sinatra-flash", "~> 0.3.0"
+
+gem "bcrypt", "~> 3.1"
