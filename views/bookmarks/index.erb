@@ -1,12 +1,18 @@
 <% if @user %>
   <h1>Welcome, <%= @user.email %></h1>
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
 <% end %>
+<h1>teste</h1>
 <ul>
   <% @bookmarks.each do |bookmark| %>
     <li class="bookmark" id="bookmark-<%= bookmark.id %>">
       <a href="<%= bookmark.url %>" target="_blank">
         <%= bookmark.title %>
       </a>
+
+      
       <form action="/bookmarks/<%= bookmark.id %>" method="post">
         <input type='hidden' name='_method' value='DELETE'/>
         <input type="submit" value="Delete" />
