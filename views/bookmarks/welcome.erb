@@ -1,0 +1,18 @@
+<div class="container">
+<h1> Welcome to the Bookmark Manager</h1>
+
+<h4>Don't have an account yet?</h4>
+<form action="/sessions" method="post">
+  <input type="email" name="email" placeholder="Your Email"/>
+  <input type="password" name="password" placeholder="Choose a Password"  />
+  <input type="submit" value="Sign in" />
+</form>
+</div>
+
+<h4>Already have an account:</h4>
+<form method="post" action="/users">
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Submit">
+</form>
+</div>

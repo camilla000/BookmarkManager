@@ -3,9 +3,17 @@
   <form action="/sessions/destroy" method="post">
     <input type="submit" value="Sign out" />
   </form>
-<% end %>
-<h1>teste</h1>
+   <div>
+ <h3>Add New Bookmark</h3>
+ <form action="/bookmarks" method="post">
+  <input type="text" name="url" placeholder="URL" />
+  <input type="text" name="title" placeholder="Title" />
+  <input type="submit" value="Submit" />
+</form>
+ </div>
+
 <ul>
+<h3>Your Bookmarks: </h3>
   <% @bookmarks.each do |bookmark| %>
     <li class="bookmark" id="bookmark-<%= bookmark.id %>">
       <a href="<%= bookmark.url %>" target="_blank">
@@ -56,3 +64,11 @@
 <h2>
   <%= flash[:notice] %>
 </h2>
+<% else %>
+  <h1>Please sign in</h1>
+  <form method="post" action="/users">
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Submit">
+</form>
+<% end %>
